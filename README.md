@@ -1,8 +1,8 @@
-## BestCasino 1.2.1 by ColineTeam 
+## BestCasino 1.2.1 by ColineTeam
 
-Демонстарация: https://vk.com/video227150488_456239143  
+Demonstration: https://vk.com/video227150488_456239143
 
-Комманды:
-> /settingcasino - настроить казино
+Commands:
+> / settingcasino - configure casino
 ---
-Плагин сделан в сотрудничесве с [PMine.ru](https://pmine.ru)
+The plugin is made in collaboration with [PMine.ru] (https://pmine.ru)
