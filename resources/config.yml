@@ -1,7 +1,7 @@
 ---
-#⬇ Название валюты
+# ⬇ Currency name
 currency_name: $
-#⬇ Количиство валюты которое нужно снять
+# ⬇ The amount of currency you need to withdraw
 money: 100
 # 1 - EconomyAPI
 money_plugn: 1
