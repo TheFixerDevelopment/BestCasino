@@ -1,19 +1,14 @@
 <?php
-
 /* MIT License
-
 Copyright (c) 2017 Alexey Lozovjagin
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,9 +17,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-
 namespace Coline\Casino;
-
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\plugin\PluginBase;
@@ -138,7 +131,6 @@ class BestCasinoMain extends PluginBase implements Listener{
                       }
                      
                   }
-
                    
                     $player->setMotion(new Vector3($x, 0.1, $z));  
                     
@@ -148,7 +140,6 @@ class BestCasinoMain extends PluginBase implements Listener{
             
         }
     }
-
     public function onStart(\pocketmine\event\player\PlayerInteractEvent $event){
         $player = $event->getPlayer();
         $block = $event->getBlock();
@@ -194,7 +185,6 @@ class BestCasinoMain extends PluginBase implements Listener{
         }
         return true;
     }
-
     public function onSettings(\pocketmine\event\player\PlayerInteractEvent $event){
        $player = $event->getPlayer();
        if(@is_numeric($this->scopes[$player->getName()])){
@@ -235,7 +225,6 @@ class BestCasinoMain extends PluginBase implements Listener{
             if(is_numeric($event->getMessage()) ){
                 file_put_contents($this->getDataFolder()."frames.json", json_encode(array_merge($this->framesetting, ['mode' => $event->getMessage()])));
                 $event->getPlayer()->sendMessage(TF::YELLOW.'Все рамки записаны, перезагрузка плагина...');
-
                  $this->getServer()->getPluginManager()->disablePlugin($this);
                  $this->getServer()->getPluginManager()->loadPlugin($this->getFile());
                  $this->getServer()->getPluginManager()->enablePlugin( $this->getServer()->getPluginManager()->getPlugin("BestCasino"));
@@ -294,13 +283,11 @@ class BestCasinoMain extends PluginBase implements Listener{
         $this->gamevariables['player'] = NULL;
         $this->gamevariables['started'] = FALSE;
     }
-
     public function clearALL(){
         foreach ($this->frames as $key => $data){
             $this->frames[$key]['activated'] = FALSE;
         }
     }
-
     public function getTileByFrameID(int $id) : ItemFrame{
         $vector = explode(':', $this->frames[$id]['vector']);
         return $this->getServer()->getDefaultLevel()->getTile(new Vector3((int) $vector[0], (int) $vector[1], (int) $vector[2]));
@@ -311,7 +298,6 @@ class BestCasinoMain extends PluginBase implements Listener{
     private function _getConfig(){
         
         return $this->getConfig()->getAll();
+
       }
-    }
-  }
 }
